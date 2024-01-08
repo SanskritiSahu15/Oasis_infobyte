@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Productivity App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #55c57a;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        header h1 {
+            margin-bottom: 0.5em;
+        }
+
+        section {
+            text-align: center;
+            padding: 4em 2em;
+        }
+
+        h1, h2 {
+            color: #55c57a;
+        }
+
+        .cta-button, .sign-in-button {
+            padding: 1.5em 3em;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 2em; /*to create space above the button*/
+        }
+
+
+        .cta-button {
+            background-color: #55c57a;
+            color: white;
+            border: none;
+
+        }
+
+        /* New section for sign-in details */
+        .sign-in-section {
+            background-color: #f8f8f8;
+            padding: 4em 2em;
+            text-align: center;
+        }
+
+        .sign-in-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 2em;
+        }
+
+        .sign-in-form label {
+            display: block;
+            margin-bottom: 1em;
+        }
+
+        .sign-in-form input {
+            width: 100%;
+            padding: 1em;
+            margin-bottom: 1em;
+        }
+
+        .sign-in-button {
+            padding: 1.5em 3em;
+            font-size: 1.2em;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 2em;
+        }
+
+        .feature {
+            flex: 1;
+            padding: 2em;
+            margin: 1em;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+        }
+
+        .feature h3, .feature p {
+            transition: color 0.3s ease-in-out;
+        }
+
+        .feature:hover h3, .feature:hover p {
+            color: #55c57a;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            width: 100%;
+        }
+
+        /* Media Queries for Responsive Design */
+        @media screen and (max-width: 768px) {
+            section {
+                padding: 2em;
+            }
+
+            .feature {
+                flex: 1 0 100%;
+                margin: 1em 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mindful Productivity App</h1>
+        <p>Boost Your Productivity Mindfully</p>
+    </header>
+
+    <section>
+        <h2>Key Features</h2>
+
+        <div class="features">
+            <div class="feature">
+                <img src="https://snacknation.com/wp-content/uploads/2020/12/Best-Task-Management-Software-Platforms.png" alt="Task Management" width="300" height="200">
+                <h3>Task Management</h3>
+                <p>Seamless task organization with priority settings and to-do lists.</p>
+            </div>
+
+            <div class="feature">
+                <img src="https://media.istockphoto.com/id/1328684881/vector/psychological-harmony-concept.jpg?s=612x612&w=0&k=20&c=f7DaWO_Ime5P6-leBqBORJQq0wGnJ-AdacSQLIaBKng=" width="300" height="200">
+                <h3>Mindfulness Reminders</h3>
+                <p>Timed breaks, mindfulness prompts, and meditation reminders for a balanced workday.</p>
+            </div>
+
+            <div class="feature">
+                <img src="https://img.freepik.com/premium-vector/focus-mode-concept_118813-3269.jpg?w=360" alt="Focus Mode" width="300" height="200">
+                <h3>Focus Mode</h3>
+                <p>Distraction-free focus mode to enhance concentration during work sessions.</p>
+            </div>
+
+            <div class="feature">
+                <img src="https://www.flimp.net/wp-content/uploads/2022/11/predictive-analytics-build-better-benefits-packages.png" alt="Analytics" width="300" height="200">
+                <h3>Analytics</h3>
+                <p>Track productivity and efficiency with insightful analytics.</p>
+            </div>
+        </div>
+
+        <section class="sign-in-section">
+        <h2>Sign In</h2>
+        <div class="sign-in-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+
+            <button class="sign-in-button" onclick="signIn()">Sign In</button>
+        </div>
+
+        <button class="cta-button" onclick="redirectToApp()">Download Now</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mindful Productivity App. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function redirectToApp() {
+            window.location.href = 'https://your-app-download-url.com';
+        }
+
+        function redirectToSignIn() {
+            window.location.href = 'https://your-signin-url.com';
+        }
+    </script>
+</body>
+</html>
