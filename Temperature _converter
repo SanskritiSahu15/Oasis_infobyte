@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f8f8;
+            background-image: url("https://www.wkbn.com/wp-content/uploads/sites/48/2023/08/outdoor-surface-thermometers-dangerous-heat-1.jpg?w=1280"); /* Placeholder image for demonstration */
+            background-size: cover;
+        }
+
+        #converter {
+            text-align: center;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px; /* Add padding to the temperature section */
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input, select, button {
+            width: 100%;
+            margin: 8px 0;
+            padding: 10px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="converter">
+        <h2>Temperature Converter</h2>
+
+        <!-- Input field for temperature -->
+        <label for="temperature">Enter Temperature:</label>
+        <input type="text" id="temperature" placeholder="E.g., 25" />
+
+        <!-- Dropdown menu for input unit selection -->
+        <label for="fromUnit">Select Input Unit:</label>
+        <select id="fromUnit">
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+        </select>
+
+        <!-- Dropdown menu for output unit selection -->
+        <label for="toUnit">Select Output Unit:</label>
+        <select id="toUnit">
+            <option value="celsius">Celsius</option>
+            <option value="fahrenheit">Fahrenheit</option>
+            <option value="kelvin">Kelvin</option>
+        </select>
+
+        <!-- Button to trigger temperature conversion -->
+        <button onclick="convertTemperature()">Convert</button>
+
+        <!-- Display area for the converted temperature and unit -->
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function convertTemperature() {
+            // Retrieve user input
+            const temperatureInput = document.getElementById('temperature').value;
+            const fromUnitSelect = document.getElementById('fromUnit');
+            const toUnitSelect = document.getElementById('toUnit');
+
+            const fromUnit = fromUnitSelect.options[fromUnitSelect.selectedIndex].value;
+            const toUnit = toUnitSelect.options[toUnitSelect.selectedIndex].value;
+
+            // Validate input as a number
+            if (isNaN(temperatureInput)) {
+                alert('Please enter a valid number for temperature.');
+                return;
+            }
+
+            const temperature = parseFloat(temperatureInput);
+
+            let convertedTemperature;
+            let resultUnit;
+
+            // Perform the temperature conversion
+            if (fromUnit === 'celsius' && toUnit === 'fahrenheit') {
+                convertedTemperature = (temperature * 9 / 5) + 32;
+                resultUnit = 'Fahrenheit';
+            } else if (fromUnit === 'celsius' && toUnit === 'kelvin') {
+                convertedTemperature = temperature + 273.15;
+                resultUnit = 'Kelvin';
+            } else if (fromUnit === 'fahrenheit' && toUnit === 'celsius') {
+                convertedTemperature = (temperature - 32) * (5 / 9);
+                resultUnit = 'Celsius';
+            } else if (fromUnit === 'fahrenheit' && toUnit === 'kelvin') {
+                convertedTemperature = (temperature - 32) * (5 / 9) + 273.15;
+                resultUnit = 'Kelvin';
+            } else if (fromUnit === 'kelvin' && toUnit === 'celsius') {
+                convertedTemperature = temperature - 273.15;
+                resultUnit = 'Celsius';
+            } else if (fromUnit === 'kelvin' && toUnit === 'fahrenheit') {
+                convertedTemperature = (temperature - 273.15) * (9 / 5) + 32;
+                resultUnit = 'Fahrenheit';
+            } else {
+                // If same units are selected for input and output
+                alert('Please select different units for conversion.');
+                return;
+            }
+
+            // Display the result
+            document.getElementById('result').innerText = `Converted Temperature: ${convertedTemperature.toFixed(2)} ${resultUnit}`;
+        }
+    </script>
+</body>
+</html>
